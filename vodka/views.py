@@ -1,13 +1,13 @@
 from rest_framework import generics
-from .serializer import ThingSerializer
-from .models import Thing
+from .serializer import VodkaSerializer
+from .models import Vodka
 
-class ThingList(generics.ListCreateAPIView):
-    queryset = Thing.objects.all()
-    serializer_class = ThingSerializer
+
+class VodkaList(generics.ListCreateAPIView):
+    queryset = Vodka.objects.all()
+    serializer_class = VodkaSerializer
+
 
 class ThingDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Thing.objects.all()
-    serializer_class = ThingSerializer
-
-
+    queryset = Vodka.objects.all()
+    serializer_class = VodkaSerializer

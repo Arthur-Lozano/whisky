@@ -1,10 +1,10 @@
 from django.test import TestCase
 from django.contrib.auth import get_user_model
 
-from .models import Thing
+from .models import Vodka
 
 
-class ThingTests(TestCase):
+class VodkaTests(TestCase):
     @classmethod
     def setUpTestData(cls):
         testuser1 = get_user_model().objects.create_user(
@@ -12,15 +12,15 @@ class ThingTests(TestCase):
         )
         testuser1.save()
 
-        test_thing = Thing.objects.create(
+        test_vodka = Vodka.objects.create(
             name="rake",
             owner=testuser1,
             description="Better for collecting leaves than a shovel.",
         )
-        test_thing.save()
+        test_vodka.save()
 
-    def test_things_model(self):
-        thing = Thing.objects.get(id=1)
+    def test_vodka_model(self):
+        thing = Vodka.objects.get(id=1)
         actual_owner = str(thing.owner)
         actual_name = str(thing.name)
         actual_description = str(thing.description)
